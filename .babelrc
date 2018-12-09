@@ -1,0 +1,16 @@
+{
+    "presets": [
+        "@babel/preset-react",
+        "@babel/preset-env"
+    ],
+    "plugins": [
+    ],
+    "env": {
+        "test": {
+            "plugins": [
+                "babel-plugin-espower"
+            ]
+        }
+    }
+}
+

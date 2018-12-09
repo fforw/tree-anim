@@ -1,0 +1,33 @@
+{
+    "name": "tree-anim",
+    "version": "0.0.1",
+    "main": "index.js",
+    "author": "Sven Helmberger <fforw@gmx.de>",
+    "license": "Apache-2.0",
+    "dependencies": {
+        "react": "^16.6.3",
+        "react-dom": "^16.6.3"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.2.0",
+        "@babel/preset-env": "^7.2.0",
+        "@babel/preset-react": "^7.0.0",
+        "babel-loader": "^8.0.4",
+        "babel-plugin-espower": "^3.0.0",
+        "cross-env": "^5.2.0",
+        "css-loader": "^2.0.0",
+        "html-webpack-plugin": "^3.2.0",
+        "mini-css-extract-plugin": "^0.5.0",
+        "mocha": "^5.2.0",
+        "power-assert": "^1.6.1",
+        "shelljs": "^0.8.3",
+        "webpack": "^4.27.1",
+        "webpack-cli": "^3.1.2"
+    },
+    "scripts": {
+        "build": "cross-env NODE_ENV=production webpack -p",
+        "build-dev": "cross-env NODE_ENV=development webpack --debug --output-pathinfo",
+        "watch": "cross-env NODE_ENV=development webpack --debug --output-pathinfo -w",
+        "test": "cross-env NODE_ENV=development BABEL_ENV=test mocha --require babel-register -R spec test/"
+    }
+}
