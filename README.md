@@ -1,3 +1,3 @@
 # Tree Anim
 
-React SVG Tree animation (WIP)
+Canvas Tree animation (WIP)
