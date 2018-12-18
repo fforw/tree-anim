@@ -43,6 +43,7 @@ module.exports = {
             filename: "index.html"
         }),
 
+        
         new MiniCssExtractPlugin({
             filename: "bundle-[name]-[chunkhash].css",
             chunkFilename: "bundle-[id]-[chunkhash].css"
@@ -80,6 +81,16 @@ module.exports = {
                 test: /\.css$/,
                 //                exclude: /node_modules/,
                 use: [MiniCssExtractPlugin.loader, "css-loader"]
+            },
+
+            {
+                test: /\.(png|jpg|gif)$/,
+                use: [
+                    {
+                        loader: "file-loader",
+                        options: {}
+                    }
+                ]
             }
         ]
     },
