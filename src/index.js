@@ -72,14 +72,15 @@ function drawLeafOrSnow(context, x, y, z, i, isLeaf, didHitGround)
     const angle = rnd0 * TAU;
 
     context.save();
-    context.translate(x + 32, y + (didHitGround ? -decayStart + 20 : 20));
+    context.translate(x - 32, y + (didHitGround ? - decayStart: 0) - 18);
 
     if (isLeaf || !didHitGround)
     {
         context.rotate(angle);
 
     }
-    context.scale(0.25 + 0.5 * z * LEAF_SCALE, 0.25 + 0.5 * z * LEAF_SCALE);
+    const s = config.minLeaf + z * (config.maxLeaf - config.minLeaf);
+    context.scale(s, s);
 
     if (isLeaf)
     {
@@ -89,7 +90,7 @@ function drawLeafOrSnow(context, x, y, z, i, isLeaf, didHitGround)
     {
         if (didHitGround)
         {
-            context.fillRect(0, 0, 96, 18);
+            context.fillRect(0, 0, 48, 10);
         }
         else
         {
@@ -225,7 +226,7 @@ function render()
     ctx.beginPath();
 
     const windX = Math.cos(time * 0.0003) * 100;
-    const windY = Math.cos(time * 0.0007) * 50;
+    const windY = Math.cos(time * 0.0007) * 60;
 
     ctx.moveTo(points[0], points[1]);
 
@@ -290,8 +291,8 @@ function render()
         for (let i = 0; i < particlesPerSeason; i += LEAF_SIZE)
         {
             let x = leafs[i] + windX * leafWindFactor;
-            let y = leafs[i + 1] + windY * leafWindFactor;
             let z = leafs[i + 2];
+            let y = leafs[i + 1];
             let code = leafs[i + 3];
 
             if (code === LOCKED)
@@ -299,6 +300,10 @@ function render()
                 if (season === AUTUMN)
                 {
                     code = leafs[i + 3] = LEAF;
+                }
+                else if (season === WINTER)
+                {
+                    code = leafs[i + 3] = SNOW;
                 }
                 else
                 {
@@ -308,7 +313,8 @@ function render()
 
             const isLeaf = code === LEAF;
 
-            y += gravity;
+            const depthFactor = z * 0.5;
+            y += 2 + gravity * depthFactor + windY * leafWindFactor * depthFactor;
 
             if (x < -64)
             {
@@ -330,7 +336,7 @@ function render()
 
             if (y > -64)
             {
-                const horizonY = height * horizon;
+                const horizonY = (height * horizon + 32)|0;
                 const didHitGround = y > horizonY + (height - horizonY) * z;
 
                 const context = didHitGround ? bgContext : ctx;
@@ -380,7 +386,7 @@ function render()
         frost = 0;
     }
 
-    if (season === WINTER && frost >= config.frostLimit)
+    if (season === WINTER && frost >= config.frostLimit && (seasonCount & 3) === 0)
     {
         bgContext.fillStyle = "rgba(255,255,255,0.006)";
         bgContext.fillRect(0,32,width,background.height - 32);
@@ -439,7 +445,7 @@ const resizeCanvasToScreen = debounce(() => {
 
     if (season !== SPRING)
     {
-        for (let i = 0; i < config.seasonLength; i++)
+        for (let i = 0; i < config.seasonLength / 3; i++)
         {
             drawGrass();
         }

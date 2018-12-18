@@ -23,6 +23,9 @@ export  default {
     radiuses: [ WIDTH, WIDTH /r, WIDTH / r2, WIDTH / r3, WIDTH/ r4, WIDTH/r5],
 
     gravity: 4,
+
+    minLeaf: 0.2,
+    maxLeaf: 0.6,
     
     numLeafs: [500,100, 100, 500],
     leafWindFactor: [0.01,0.01,0.05,0.02],
@@ -33,9 +36,9 @@ export  default {
     frostLimit: 80,
     
     // setting this higher might slow the simulation down
-    decayRate: 8,
+    decayRate: 13,
 
-    decaySize: 38,
+    decaySize: 40,
     
     seasonLength: 60 * 45,
 
@@ -47,40 +50,5 @@ export  default {
     initialSeason: getCurrentSeason(),
 
     grassCount: 100,
-    grassLength: 50,
-
-    grassColors: [
-        "#60bc51",
-        "#5db64e",
-        "#5ab04c",
-        "#57ab49",
-        "#54a547",
-        "#51a045",
-        "#4e9a42",
-        "#4b9440",
-        "#498f3d",
-        "#46893b",
-        "#438439",
-        "#407e36",
-        "#3d7834",
-        "#3a7331",
-        "#376d2f",
-        "#35682d",
-        "#35682d",
-        "#3f6e2f",
-        "#497532",
-        "#547c35",
-        "#5e8338",
-        "#688a3b",
-        "#72913e",
-        "#7d9841",
-        "#879e44",
-        "#92a547",
-        "#9cac4a",
-        "#a6b34d",
-        "#b1ba50",
-        "#bbc153",
-        "#c5c856",
-        "#cfcf59"
-    ]
+    grassLength: 50
 }
