@@ -62,12 +62,16 @@ body.season-3
     z-index: 50;
 }
 
-#music
+#project
 {
     position: absolute;
     left: 4px;
     bottom: 4px;
     z-index: 110;
+    color: #222;
+    font-weight: bold;
+    padding: 4px;
+    background: rgba(255,255,255,0.5);
 }
 
 
