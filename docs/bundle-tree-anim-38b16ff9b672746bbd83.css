@@ -1,0 +1,80 @@
+body
+{
+    overflow: hidden;
+    background: #888c8f;
+}
+
+body.season-0
+{
+    background: #9ec7de;
+
+    -webkit-transition: background-color 5000ms linear;
+    -ms-transition: background-color 5000ms linear;
+    transition: background-color 5000ms linear;
+}
+
+body.season-1
+{
+    background: #7fcae3;
+
+    -webkit-transition: background-color 5000ms linear;
+    -ms-transition: background-color 5000ms linear;
+    transition: background-color 5000ms linear;
+}
+
+body.season-2
+{
+    background: #93b5c7;
+
+    -webkit-transition: background-color 5000ms linear;
+    -ms-transition: background-color 5000ms linear;
+    transition: background-color 5000ms linear;
+}
+
+body.season-3
+{
+    background: #a1a7aa;
+
+    -webkit-transition: background-color 5000ms linear;
+    -ms-transition: background-color 5000ms linear;
+    transition: background-color 5000ms linear;
+}
+
+
+.offscreen
+{
+    position: absolute;
+    left: -10000px;
+}
+
+#screen
+{
+    position: absolute;
+    top:0;
+    left: 0;
+    z-index: 100;
+}
+
+#bg
+{
+    position: absolute;
+    left: 0;
+    z-index: 50;
+}
+
+#music
+{
+    position: absolute;
+    left: 4px;
+    bottom: 4px;
+    z-index: 110;
+}
+
+
+.grass
+{
+    color: #35682d;
+}
+
+
+/*# sourceMappingURL=bundle-tree-anim-38b16ff9b672746bbd83.css.map*/

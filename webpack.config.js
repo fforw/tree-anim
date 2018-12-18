@@ -9,7 +9,7 @@ const shellJs = require("shelljs");
 
 const PRODUCTION = (process.env.NODE_ENV === "production");
 
-const JS_OUTPUT_DIRECTORY = path.join(__dirname, "dist/");
+const JS_OUTPUT_DIRECTORY = path.join(__dirname, "docs/");
 
 if (!fs.existsSync(JS_OUTPUT_DIRECTORY))
 {
@@ -29,7 +29,6 @@ module.exports = {
         filename: "bundle-[name]-[chunkhash].js",
         chunkFilename: "bundle-[name]-[chunkhash].js",
 
-        // TODO: change exposed entry-point
         library: "Demo",
         libraryTarget: "var"
     },

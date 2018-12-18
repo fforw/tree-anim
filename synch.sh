@@ -1,3 +1,3 @@
 #!/bin/bash
 yarn run build
-rsync -rvIz --rsh=ssh --delete --exclude=.git --exclude=*.blend ./dist/ newweb:/var/www/static/demo/tree-leafs
+rsync -rvIz --rsh=ssh --delete --exclude=.git --exclude=*.blend ./docs/ newweb:/var/www/static/demo/tree-leafs
